@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+        用户名：<input type="text" id="in1" placeholder="请输入用户名">
+        密码：<input type="text" id="in2" placeholder="请输入密码">
+    <br />
+    <button id="btn">注册</button>
+    <script>
+          var arr = ['tom','jack','lili'];
+          var btn = document.getElementById('btn');
+          in1.onblur = function(){
+          	     if(in1.value == ''){
+          	     	span.innerHTML = '用户名不能为空';
+          	     }else{
+          	     	if(arr.indexOf(in1.value) == -1){
+                 	    span.innerHTML = '用户名可以使用';
+                    }else{
+                 	    span.innerHTML = '用户名已被使用';
+                    }
+          	     }	     
+           }
+          btn.onclick = function(){
+               if(in1.value == ''&&in2.value == ''){
+                 alert('必须输入账号密码');	
+               }else if(in2.value == ''){
+                alert('必须输入密码');  
+               }else if(in1.value == ''){
+                 alert('必须输入账号');
+               }else if(arr.indexOf(in1.value) == -1){
+                  alert('注册成功');
+               }else{
+               	   alert('该用户名已被使用,请重新输入');
+               }
+           }
+    </script>
+	</body>
+</html>
