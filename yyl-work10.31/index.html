@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+</head>
+<body>
+    <input type="checkbox" id="in1">华为
+    <input type="number" id="in2" value="1">
+         单价：￥5000
+    合计：<span id="m"></span>元
+    <br>
+    <input type="checkbox" id="in3">小米
+    <input type="number" id="in4" value="1">
+    单价：￥4000
+    合计：<span id="m1"></span>元
+    <br>
+    <p id="t">0</p>
+    <script>
+        var a = 0;
+        var b = 0;
+        $('#m').html($('#in2').val() * 5000);
+        $('#in2').change(function () {
+            $('#m').html($('#in2').val() * 5000);
+            if (a == 1 && b == 1) {
+                $('#t').html(Number($('#m').html()) + Number($('#y2').html()));
+            } else if (a == 1 && b == 0) {
+                $('#t').html(Number($('#m').html()));
+            } else if (b == 1 && a == 0) {
+                $('#t').html(Number($('#m1').html()));
+            } else {
+                $('#t').html('0');
+            }
+        })
+        $('#m1').html($('#in4').val() * 4000);
+        $('#in4').change(function () {
+            $('#m1').html($('#in4').val() * 4000);
+            if (a == 1 && b == 1) {
+                $('#t').html(Number($('#m').html()) + Number($('#m1').html()));
+            } else if (a == 1 && b == 0) {
+                $('#t').html(Number($('#m').html()));
+            } else if (b == 1 && a == 0) {
+                $('#t').html(Number($('#m1').html()));
+            } else {
+                $('#t').html('0');
+            }
+        })
+        $('#in1').click(function () {
+            if (a == 0) {
+                a = 1
+            } else {
+                a = 0
+            }
+            if (a == 1 && b == 1) {
+                $('#t').html(Number($('#m').html()) + Number($('#m1').html()));
+            } else if (a == 1 && b == 0) {
+                $('#t').html(Number($('#m').html()));
+            } else if (b == 1 && a == 0) {
+                $('#t').html(Number($('#m1').html()));
+            } else {
+                $('#t').html('0');
+            }
+        })
+        $('#in3').click(function () {
+            if (b == 0) {
+                b = 1
+            } else {
+                b = 0
+            }
+            if (a == 1 && b == 1) {
+                $('#t').html(Number($('#m').html()) + Number($('#m1').html()));
+            } else if (a == 1 && b == 0) {
+                $('#t').html(Number($('#m').html()));
+            } else if (b == 1 && a == 0) {
+                $('#t').html(Number($('#m1').html()));
+            } else {
+                $('#t').html('0');
+            }
+        })
+    </script>
+</body>
+</html>
